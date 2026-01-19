@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sản phẩm MicaDo - Mica, Gỗ, UV LED, Name Night custom theo yêu cầu">
+    <title>Sản Phẩm - MicaDo</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-item">
+                <i class="fas fa-phone"></i>
+                <span>Hotline: 0392.405.600</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-truck"></i>
+                <span>Miễn phí vận chuyển đơn hàng từ 500K</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>Thiết kế theo yêu cầu - Custom design</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <span class="logo-white">Mica</span><span class="logo-orange">Do</span>
+            </a>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <select id="searchCategory">
+                    <option value="all">Tất cả</option>
+                    <option value="acrylic">Acrylic - Mica</option>
+                    <option value="wood">Gỗ</option>
+                    <option value="uv-led">UV LED - Name Night</option>
+                    <option value="accessories">Phụ kiện & Hộp quà</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Tìm sản phẩm mica, gỗ, quà tặng...">
+                <button type="button" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- User Actions -->
+            <div class="user-actions">
+                <a href="#" class="user-login">
+                    <i class="fas fa-user"></i>
+                    <span>Đăng nhập / Đăng ký</span>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                </li>
+                
+                <!-- Acrylic - Mica Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=acrylic" class="nav-link">
+                        Acrylic - Mica
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=mica-custom">Mẫu Mica Custom</a></li>
+                        <li><a href="products.html?category=moc-chia-khoa">Móc chìa khóa</a></li>
+                        <li><a href="products.html?category=standee">Standee</a></li>
+                    </ul>
+                </li>
+
+                <!-- Gỗ Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=wood" class="nav-link">
+                        Sản phẩm Gỗ
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=wood-1-layer">Gỗ 1 lớp</a></li>
+                        <li><a href="products.html?category=wood-2-layer">Gỗ 2 lớp</a></li>
+                        <li><a href="products.html?category=wood-handmade">Đồ gỗ Handmade</a></li>
+                    </ul>
+                </li>
+
+                <!-- UV LED - Name Night Dropdown -->
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=uv-led" class="nav-link">
+                        UV LED - Name Night
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=uv-led-light">UV LED</a></li>
+                        <li><a href="products.html?category=name-night">Name Night</a></li>
+                    </ul>
+                </li>
+
+                <!-- Phụ kiện & Hộp quà -->
+                <li class="nav-item">
+                    <a href="products.html?category=accessories" class="nav-link">Phụ kiện & Hộp quà</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tin tức</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Liên hệ</a>
+                </li>
+            </ul>
+            <div class="nav-hotline">
+                <i class="fas fa-phone-alt"></i>
+                <span>0392.405.600</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="active">Sản phẩm</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Products Page -->
+        <section class="products-page">
+            <div class="container">
+                <div class="products-wrapper">
+                    <!-- Sidebar Filter -->
+                    <aside class="filter-sidebar">
+                        <div class="filter-header">
+                            <h3><i class="fas fa-filter"></i> Bộ lọc sản phẩm</h3>
+                            <button class="clear-filter" id="clearFilter">
+                                <i class="fas fa-redo"></i> Xóa bộ lọc
+                            </button>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Danh mục</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="all" checked>
+                                    <span>Tất cả sản phẩm</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="mica-custom">
+                                    <span>Mẫu Mica Custom</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="moc-chia-khoa">
+                                    <span>Móc chìa khóa</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="standee">
+                                    <span>Standee</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="wood-1-layer">
+                                    <span>Gỗ 1 lớp</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="wood-2-layer">
+                                    <span>Gỗ 2 lớp</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="wood-handmade">
+                                    <span>Đồ gỗ Handmade</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="uv-led-light">
+                                    <span>UV LED</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="name-night">
+                                    <span>Name Night</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="category" value="accessories">
+                                    <span>Phụ kiện & Hộp quà</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Khoảng giá</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="0-100000">
+                                    <span>Dưới 100.000đ</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="100000-200000">
+                                    <span>100.000đ - 200.000đ</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="200000-300000">
+                                    <span>200.000đ - 300.000đ</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="300000-500000">
+                                    <span>300.000đ - 500.000đ</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="price" value="500000-999999999">
+                                    <span>Trên 500.000đ</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Status Filter -->
+                        <div class="filter-group">
+                            <h4 class="filter-title">Trạng thái</h4>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="checkbox" name="status" value="new">
+                                    <span>Hàng mới về</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="status" value="hot">
+                                    <span>Sản phẩm hot</span>
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" name="status" value="sale">
+                                    <span>Đang giảm giá</span>
+                                </label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Products Content -->
+                    <div class="products-content">
+                        <!-- Toolbar -->
+                        <div class="products-toolbar">
+                            <div class="toolbar-left">
+                                <h2 class="page-title" id="pageTitle">Tất cả sản phẩm</h2>
+                                <span class="products-count" id="productsCount">Hiển thị 0 sản phẩm</span>
+                            </div>
+                            <div class="toolbar-right">
+                                <div class="view-mode">
+                                    <button class="view-btn active" data-view="grid">
+                                        <i class="fas fa-th"></i>
+                                    </button>
+                                    <button class="view-btn" data-view="list">
+                                        <i class="fas fa-list"></i>
+                                    </button>
+                                </div>
+                                <select class="sort-select" id="sortSelect">
+                                    <option value="default">Mặc định</option>
+                                    <option value="name-asc">Tên A-Z</option>
+                                    <option value="name-desc">Tên Z-A</option>
+                                    <option value="price-asc">Giá tăng dần</option>
+                                    <option value="price-desc">Giá giảm dần</option>
+                                    <option value="newest">Mới nhất</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Products Grid -->
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Products will be loaded here via JavaScript -->
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination" id="pagination">
+                            <!-- Pagination will be loaded here via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- About -->
+                <div class="footer-section">
+                    <h3>Về MicaDo Print</h3>
+                    <p>Chuyên cung cấp sản phẩm mica, gỗ trang trí, quà tặng handmade chất lượng cao. Thiết kế theo yêu cầu - In UV chất lượng cao.</p>
+                </div>
+
+                <!-- Products -->
+                <div class="footer-section">
+                    <h3>Sản Phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=acrylic">Acrylic - Mica</a></li>
+                        <li><a href="products.html?category=wood">Sản phẩm Gỗ</a></li>
+                        <li><a href="products.html?category=uv-led">UV LED - Name Night</a></li>
+                        <li><a href="products.html?category=accessories">Phụ kiện & Hộp quà</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-section">
+                    <h3>Hỗ Trợ Khách Hàng</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                        <li><i class="fas fa-phone"></i> Hotline: 1900 6750</li>
+                        <li><i class="fas fa-envelope"></i> contact@micado.vn</li>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MicaDo Print. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>
