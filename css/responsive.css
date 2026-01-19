@@ -1,0 +1,140 @@
+/* Responsive CSS */
+
+/* Tablet and below */
+@media (max-width: 1024px) {
+    .header-container {
+        gap: var(--spacing-lg);
+    }
+    
+    .search-box {
+        max-width: 400px;
+    }
+    
+    .user-actions span {
+        display: none;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile and below */
+@media (max-width: 768px) {
+    /* Top Bar */
+    .top-bar .container {
+        justify-content: center;
+    }
+    
+    .top-bar-item {
+        font-size: var(--font-size-xs);
+    }
+    
+    /* Header */
+    .header {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .logo {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 100%;
+        order: 3;
+    }
+    
+    .search-box select {
+        min-width: 80px;
+        padding: 10px 8px;
+        font-size: var(--font-size-xs);
+    }
+    
+    .search-box input {
+        padding: 10px 12px;
+        font-size: var(--font-size-xs);
+    }
+    
+    .search-box button {
+        padding: 10px 16px;
+    }
+    
+    /* Navigation */
+    .nav {
+        overflow-x: auto;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .nav-menu {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        gap: 0;
+    }
+    
+    .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+        white-space: nowrap;
+        font-size: var(--font-size-xs);
+    }
+    
+    .nav-link i {
+        display: none;
+    }
+    
+    /* Dropdown - Convert to click on mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+        display: none;
+    }
+    
+    .has-dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-menu a {
+        color: var(--text-white);
+        padding: 8px 20px;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .top-bar-item:nth-child(2),
+    .top-bar-item:nth-child(3) {
+        display: none;
+    }
+    
+    .logo {
+        font-size: var(--font-size-xl);
+    }
+    
+    .user-actions {
+        gap: var(--spacing-sm);
+    }
+    
+    .user-actions i {
+        font-size: var(--font-size-lg);
+    }
+}
