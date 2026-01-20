@@ -317,7 +317,7 @@
       "price": 89000,
       "description": "Đèn UV LED đế oval, thiết kế hiện đại",
       "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1768889047/6884c6cb-17d5-4ef7-9ea9-c0b30b088786.png",
-      "status": ["hot"],
+      "status": [],
       "stock": 22,
       "sku": "UV-004"
     },
