@@ -49,6 +49,16 @@ function initSearch() {
                 performSearch();
             }
         });
+        
+        // Search suggestions (optional)
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.trim();
+            if (keyword.length >= 2) {
+                showSearchSuggestions(keyword);
+            } else {
+                hideSearchSuggestions();
+            }
+        });
     }
 }
 
@@ -60,12 +70,76 @@ function performSearch() {
     const category = searchCategory.value;
     
     if (keyword) {
-        // Redirect to products page with search params
-        let url = 'products.html?search=' + encodeURIComponent(keyword);
+        // Redirect to search results page
+        let url = 'search.html?q=' + encodeURIComponent(keyword);
         if (category !== 'all') {
             url += '&category=' + category;
         }
         window.location.href = url;
+    } else {
+        window.MicaDo.showNotification('Vui lòng nhập từ khóa tìm kiếm', 'error');
+    }
+}
+
+function showSearchSuggestions(keyword) {
+    // Remove existing suggestions
+    hideSearchSuggestions();
+    
+    // Sample suggestions (in real app, fetch from API)
+    const suggestions = [
+        'Mica Custom Valentine',
+        'Móc chìa khóa dễ thương',
+        'UV LED 7 màu',
+        'Standee ảnh cưới',
+        'Gỗ 2 lớp',
+        'Name Night custom'
+    ].filter(item => item.toLowerCase().includes(keyword.toLowerCase()));
+    
+    if (suggestions.length === 0) return;
+    
+    // Create suggestions container
+    const suggestionsBox = document.createElement('div');
+    suggestionsBox.className = 'search-suggestions';
+    suggestionsBox.innerHTML = suggestions.map(item => 
+        `<div class="suggestion-item" data-keyword="${item}">
+            <i class="fas fa-search"></i>
+            <span>${item}</span>
+        </div>`
+    ).join('');
+    
+    // Insert after search box
+    const searchBox = document.querySelector('.search-box');
+    searchBox.style.position = 'relative';
+    searchBox.appendChild(suggestionsBox);
+    
+    // Add click event to suggestions
+    document.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const keyword = this.dataset.keyword;
+            document.getElementById('searchInput').value = keyword;
+            hideSearchSuggestions();
+            performSearch();
+        });
+    });
+    
+    // Close suggestions when clicking outside
+    setTimeout(() => {
+        document.addEventListener('click', closeSuggestionsOnClickOutside);
+    }, 100);
+}
+
+function hideSearchSuggestions() {
+    const suggestionsBox = document.querySelector('.search-suggestions');
+    if (suggestionsBox) {
+        suggestionsBox.remove();
+        document.removeEventListener('click', closeSuggestionsOnClickOutside);
+    }
+}
+
+function closeSuggestionsOnClickOutside(e) {
+    const searchBox = document.querySelector('.search-box');
+    if (!searchBox.contains(e.target)) {
+        hideSearchSuggestions();
     }
 }
 

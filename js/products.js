@@ -2,109 +2,10 @@
 // PRODUCTS.JS - Products Page Handler
 // ===================================
 
-// Sample Products Data
-const PRODUCTS_DATA = [
-    {
-        id: 1,
-        name: 'Mica Custom - Mẫu Valentine 2024',
-        price: 100000,
-        category: 'mica-custom',
-        image: 'https://via.placeholder.com/300x300?text=Mica+Custom',
-        status: ['new', 'hot']
-    },
-    {
-        id: 2,
-        name: 'UV LED màu mới - Thiết kế tối giản',
-        price: 250000,
-        category: 'uv-led-light',
-        image: 'https://via.placeholder.com/300x300?text=UV+LED',
-        status: ['hot']
-    },
-    {
-        id: 3,
-        name: 'Wood 2 Layer - Kết hợp độc đáo',
-        price: 180000,
-        category: 'wood-2-layer',
-        image: 'https://via.placeholder.com/300x300?text=Wood+2+Layer',
-        status: ['new']
-    },
-    {
-        id: 4,
-        name: 'Móc chìa khóa Mica - Hình thú cưng',
-        price: 45000,
-        category: 'moc-chia-khoa',
-        image: 'https://via.placeholder.com/300x300?text=Moc+Chia+Khoa',
-        status: []
-    },
-    {
-        id: 5,
-        name: 'Standee Mica - Nhân vật anime',
-        price: 120000,
-        category: 'standee',
-        image: 'https://via.placeholder.com/300x300?text=Standee',
-        status: ['hot']
-    },
-    {
-        id: 6,
-        name: 'Gỗ 1 lớp - Khắc laser tên',
-        price: 85000,
-        category: 'wood-1-layer',
-        image: 'https://via.placeholder.com/300x300?text=Wood+1+Layer',
-        status: []
-    },
-    {
-        id: 7,
-        name: 'Name Night - Đèn ngủ custom',
-        price: 280000,
-        category: 'name-night',
-        image: 'https://via.placeholder.com/300x300?text=Name+Night',
-        status: ['new']
-    },
-    {
-        id: 8,
-        name: 'Đồ gỗ Handmade - Hộp đựng trang sức',
-        price: 350000,
-        category: 'wood-handmade',
-        image: 'https://via.placeholder.com/300x300?text=Wood+Handmade',
-        status: ['sale']
-    },
-    {
-        id: 9,
-        name: 'Phụ kiện - Hộp quà cao cấp',
-        price: 50000,
-        category: 'accessories',
-        image: 'https://via.placeholder.com/300x300?text=Gift+Box',
-        status: []
-    },
-    {
-        id: 10,
-        name: 'Mica Custom - Bảng tên văn phòng',
-        price: 95000,
-        category: 'mica-custom',
-        image: 'https://via.placeholder.com/300x300?text=Mica+Name',
-        status: []
-    },
-    {
-        id: 11,
-        name: 'UV LED - Đèn led 7 màu',
-        price: 320000,
-        category: 'uv-led-light',
-        image: 'https://via.placeholder.com/300x300?text=UV+LED+7+Color',
-        status: ['new', 'hot']
-    },
-    {
-        id: 12,
-        name: 'Standee - Thiệp cưới độc đáo',
-        price: 150000,
-        category: 'standee',
-        image: 'https://via.placeholder.com/300x300?text=Wedding+Standee',
-        status: []
-    }
-];
-
 // State
-let currentProducts = [...PRODUCTS_DATA];
-let filteredProducts = [...PRODUCTS_DATA];
+let PRODUCTS_DATA = [];
+let currentProducts = [];
+let filteredProducts = [];
 let currentPage = 1;
 let productsPerPage = 12;
 let currentView = 'grid';
@@ -117,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProductsPage();
 });
 
-function initProductsPage() {
+async function initProductsPage() {
     // Get DOM elements
     productsGrid = document.getElementById('productsGrid');
     pagination = document.getElementById('pagination');
@@ -125,6 +26,9 @@ function initProductsPage() {
     productsCount = document.getElementById('productsCount');
     
     if (!productsGrid) return; // Not on products page
+    
+    // Load products data
+    await loadProductsData();
     
     // Initialize filters
     initFilters();
@@ -134,6 +38,23 @@ function initProductsPage() {
     
     // Render products
     renderProducts();
+}
+
+// ===== LOAD PRODUCTS DATA =====
+async function loadProductsData() {
+    try {
+        const response = await fetch('data/products.json');
+        const data = await response.json();
+        PRODUCTS_DATA = data.products;
+        currentProducts = [...PRODUCTS_DATA];
+        filteredProducts = [...PRODUCTS_DATA];
+    } catch (error) {
+        console.error('Error loading products:', error);
+        // Fallback to empty array if file not found
+        PRODUCTS_DATA = [];
+        currentProducts = [];
+        filteredProducts = [];
+    }
 }
 
 // ===== URL PARAMETERS =====

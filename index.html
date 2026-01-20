@@ -342,6 +342,80 @@
     </footer>
 
     <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+    // Load products for home page
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            const response = await fetch('data/products.json');
+            const data = await response.json();
+            const products = data.products;
+            
+            // Load hot products
+            const hotProducts = products.filter(p => p.status.includes('hot')).slice(0, 8);
+            renderHomeProducts('hotProducts', hotProducts);
+            
+            // Load new products
+            const newProducts = products.filter(p => p.status.includes('new')).slice(0, 8);
+            renderHomeProducts('newProducts', newProducts);
+            
+        } catch (error) {
+            console.error('Error loading products:', error);
+        }
+    });
+
+    function renderHomeProducts(gridId, products) {
+        const grid = document.getElementById(gridId);
+        if (!grid) return;
+        
+        grid.innerHTML = products.map(product => {
+            const badgeHtml = product.status.includes('new') 
+                ? '<span class="product-badge">NEW</span>' 
+                : product.status.includes('sale') 
+                ? '<span class="product-badge" style="background: #28a745;">SALE</span>' 
+                : '';
+            
+            return `
+                <div class="product-card">
+                    ${badgeHtml}
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-footer">
+                            <span class="product-price">${formatPrice(product.price)}</span>
+                            <button class="add-to-cart-btn" onclick="addToCartFromHome(${product.id})">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    async function addToCartFromHome(productId) {
+        try {
+            const response = await fetch('data/products.json');
+            const data = await response.json();
+            const product = data.products.find(p => p.id === productId);
+            if (product) {
+                window.MicaDo.addToCart(product);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    function formatPrice(price) {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+        }).format(price);
+    }
+    </script>
 </body>
 
 </html>
