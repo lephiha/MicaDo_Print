@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chi tiết sản phẩm - MicaDo">
+    <title>Chi Tiết Sản Phẩm - MicaDo</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-item">
+                <i class="fas fa-phone"></i>
+                <span>Hotline: 1900 6750</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-truck"></i>
+                <span>Miễn phí vận chuyển đơn hàng từ 500K</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>Thiết kế theo yêu cầu - Custom design</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-white">Mica</span><span class="logo-orange">Do</span>
+            </a>
+
+            <div class="search-box">
+                <select id="searchCategory">
+                    <option value="all">Tất cả</option>
+                    <option value="acrylic">Acrylic - Mica</option>
+                    <option value="wood">Gỗ</option>
+                    <option value="uv-led">UV LED - Name Night</option>
+                    <option value="accessories">Phụ kiện & Hộp quà</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Tìm sản phẩm mica, gỗ, quà tặng...">
+                <button type="button" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="user-actions">
+                <a href="#" class="user-login">
+                    <i class="fas fa-user"></i>
+                    <span>Đăng nhập / Đăng ký</span>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                </li>
+                
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=acrylic" class="nav-link">
+                        Acrylic - Mica
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=mica-custom">Mẫu Mica Custom</a></li>
+                        <li><a href="products.html?category=moc-chia-khoa">Móc chìa khóa</a></li>
+                        <li><a href="products.html?category=standee">Standee</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=wood" class="nav-link">
+                        Sản phẩm Gỗ
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=wood-1-layer">Gỗ 1 lớp</a></li>
+                        <li><a href="products.html?category=wood-2-layer">Gỗ 2 lớp</a></li>
+                        <li><a href="products.html?category=wood-handmade">Đồ gỗ Handmade</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=uv-led" class="nav-link">
+                        UV LED - Name Night
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=uv-led-light">UV LED</a></li>
+                        <li><a href="products.html?category=name-night">Name Night</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="products.html?category=accessories" class="nav-link">Phụ kiện & Hộp quà</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tin tức</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Liên hệ</a>
+                </li>
+            </ul>
+            <div class="nav-hotline">
+                <i class="fas fa-phone-alt"></i>
+                <span>1900 6750</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="active" id="breadcrumbProduct">Chi tiết sản phẩm</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Product Detail -->
+        <section class="product-detail-section">
+            <div class="container">
+                <div class="product-detail-wrapper">
+                    <!-- Product Images -->
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img id="mainImage" src="https://via.placeholder.com/600x600?text=Product+Image" alt="Product">
+                            <span class="product-badge" id="productBadge">NEW</span>
+                        </div>
+                        <div class="thumbnail-images">
+                            <div class="thumbnail active">
+                                <img src="https://via.placeholder.com/150x150?text=Image+1" alt="Thumbnail 1">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://via.placeholder.com/150x150?text=Image+2" alt="Thumbnail 2">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://via.placeholder.com/150x150?text=Image+3" alt="Thumbnail 3">
+                            </div>
+                            <div class="thumbnail">
+                                <img src="https://via.placeholder.com/150x150?text=Image+4" alt="Thumbnail 4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-info-detail">
+                        <h1 class="product-name" id="productName">Mica Custom - Mẫu Valentine 2024</h1>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-text">(4.5/5 - 128 đánh giá)</span>
+                        </div>
+
+                        <div class="product-price-wrapper">
+                            <span class="product-price" id="productPrice">100.000đ</span>
+                            <span class="product-price-old" id="productPriceOld">150.000đ</span>
+                            <span class="discount-badge">-33%</span>
+                        </div>
+
+                        <div class="product-description">
+                            <h3>Mô tả sản phẩm:</h3>
+                            <p id="productDescription">
+                                Sản phẩm mica custom thiết kế độc đáo theo yêu cầu của khách hàng. 
+                                Chất liệu mica cao cấp, in UV sắc nét, bền màu theo thời gian. 
+                                Phù hợp làm quà tặng sinh nhật, kỷ niệm, valentine...
+                            </p>
+                        </div>
+
+                        <div class="product-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Thiết kế theo yêu cầu</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>In UV chất lượng cao</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mica cao cấp, bền đẹp</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Giao hàng toàn quốc</span>
+                            </div>
+                        </div>
+
+                        <div class="product-quantity">
+                            <label>Số lượng:</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="decreaseQty">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" max="99">
+                                <button class="qty-btn" id="increaseQty">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <span class="stock-status">
+                                <i class="fas fa-check-circle"></i>
+                                Còn hàng
+                            </span>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-add-cart" id="addToCartBtn">
+                                <i class="fas fa-cart-plus"></i>
+                                Thêm vào giỏ hàng
+                            </button>
+                            <button class="btn btn-secondary btn-buy-now" id="buyNowBtn">
+                                <i class="fas fa-shopping-bag"></i>
+                                Mua ngay
+                            </button>
+                        </div>
+
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <strong>SKU:</strong>
+                                <span id="productSKU">MC-001</span>
+                            </div>
+                            <div class="meta-item">
+                                <strong>Danh mục:</strong>
+                                <a href="#" id="productCategory">Mica Custom</a>
+                            </div>
+                            <div class="meta-item">
+                                <strong>Tags:</strong>
+                                <span class="tags">
+                                    <a href="#">mica</a>
+                                    <a href="#">custom</a>
+                                    <a href="#">valentine</a>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="product-share">
+                            <strong>Chia sẻ:</strong>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="share-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn pinterest">
+                                    <i class="fab fa-pinterest-p"></i>
+                                </a>
+                                <a href="#" class="share-btn zalo">
+                                    <i class="fas fa-comment"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Tabs -->
+                <div class="product-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="description">Mô tả chi tiết</button>
+                        <button class="tab-btn" data-tab="specifications">Thông số kỹ thuật</button>
+                        <button class="tab-btn" data-tab="reviews">Đánh giá (128)</button>
+                    </div>
+                    <div class="tabs-content">
+                        <div class="tab-panel active" id="description">
+                            <h3>Mô tả chi tiết sản phẩm</h3>
+                            <p>Sản phẩm Mica Custom được thiết kế và sản xuất theo yêu cầu riêng của từng khách hàng. Với công nghệ in UV hiện đại, chúng tôi có thể tạo ra những sản phẩm với độ sắc nét cao, màu sắc bền đẹp theo thời gian.</p>
+                            <p>Chất liệu mica cao cấp, trong suốt, bền bỉ và an toàn. Phù hợp để làm quà tặng, trang trí, hay sử dụng cá nhân.</p>
+                            <h4>Ưu điểm:</h4>
+                            <ul>
+                                <li>Thiết kế hoàn toàn tùy chỉnh theo ý muốn</li>
+                                <li>In UV chất lượng cao, không bong tróc</li>
+                                <li>Chất liệu mica an toàn, bền đẹp</li>
+                                <li>Giao hàng nhanh chóng</li>
+                                <li>Hỗ trợ tư vấn thiết kế miễn phí</li>
+                            </ul>
+                        </div>
+                        <div class="tab-panel" id="specifications">
+                            <h3>Thông số kỹ thuật</h3>
+                            <table class="specs-table">
+                                <tr>
+                                    <td><strong>Chất liệu:</strong></td>
+                                    <td>Mica acrylic cao cấp</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kích thước:</strong></td>
+                                    <td>15cm x 20cm (Có thể custom)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Độ dày:</strong></td>
+                                    <td>3mm - 5mm</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Công nghệ in:</strong></td>
+                                    <td>In UV 6 màu</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Màu sắc:</strong></td>
+                                    <td>Đa dạng theo yêu cầu</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Thời gian sản xuất:</strong></td>
+                                    <td>3-5 ngày làm việc</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-panel" id="reviews">
+                            <h3>Đánh giá từ khách hàng</h3>
+                            <div class="reviews-summary">
+                                <div class="rating-overview">
+                                    <div class="rating-score">4.5</div>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="rating-count">128 đánh giá</div>
+                                </div>
+                            </div>
+                            <div class="review-list">
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-name">Nguyễn Văn A</div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">20/01/2025</div>
+                                    <div class="review-content">
+                                        Sản phẩm rất đẹp, chất lượng tốt. Shop tư vấn nhiệt tình, giao hàng nhanh. Mình rất hài lòng!
+                                    </div>
+                                </div>
+                                <div class="review-item">
+                                    <div class="review-header">
+                                        <div class="reviewer-name">Trần Thị B</div>
+                                        <div class="review-stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">18/01/2025</div>
+                                    <div class="review-content">
+                                        Sản phẩm đẹp, đúng như mô tả. Đóng gói cẩn thận. Sẽ ủng hộ shop lần sau.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="related-products">
+                    <h2 class="section-title">Sản phẩm liên quan</h2>
+                    <div class="products-grid" id="relatedProducts">
+                        <!-- Will be loaded via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về MicaDo Print</h3>
+                    <p>Chuyên cung cấp sản phẩm mica, gỗ trang trí, quà tặng handmade chất lượng cao. Thiết kế theo yêu cầu - In UV chất lượng cao.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Sản Phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=acrylic">Acrylic - Mica</a></li>
+                        <li><a href="products.html?category=wood">Sản phẩm Gỗ</a></li>
+                        <li><a href="products.html?category=uv-led">UV LED - Name Night</a></li>
+                        <li><a href="products.html?category=accessories">Phụ kiện & Hộp quà</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Hỗ Trợ Khách Hàng</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                        <li><i class="fas fa-phone"></i> Hotline: 1900 6750</li>
+                        <li><i class="fas fa-envelope"></i> contact@micado.vn</li>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MicaDo Print. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ với MicaDo - Hotline: 1900 6750">
+    <title>Liên Hệ - MicaDo</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-item">
+                <i class="fas fa-phone"></i>
+                <span>Hotline: 1900 6750</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-truck"></i>
+                <span>Miễn phí vận chuyển đơn hàng từ 500K</span>
+            </div>
+            <div class="top-bar-item">
+                <i class="fas fa-paint-brush"></i>
+                <span>Thiết kế theo yêu cầu - Custom design</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-white">Mica</span><span class="logo-orange">Do</span>
+            </a>
+
+            <div class="search-box">
+                <select id="searchCategory">
+                    <option value="all">Tất cả</option>
+                    <option value="acrylic">Acrylic - Mica</option>
+                    <option value="wood">Gỗ</option>
+                    <option value="uv-led">UV LED - Name Night</option>
+                    <option value="accessories">Phụ kiện & Hộp quà</option>
+                </select>
+                <input type="text" id="searchInput" placeholder="Tìm sản phẩm mica, gỗ, quà tặng...">
+                <button type="button" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="user-actions">
+                <a href="#" class="user-login">
+                    <i class="fas fa-user"></i>
+                    <span>Đăng nhập / Đăng ký</span>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Trang chủ</a>
+                </li>
+                
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=acrylic" class="nav-link">
+                        Acrylic - Mica
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=mica-custom">Mẫu Mica Custom</a></li>
+                        <li><a href="products.html?category=moc-chia-khoa">Móc chìa khóa</a></li>
+                        <li><a href="products.html?category=standee">Standee</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=wood" class="nav-link">
+                        Sản phẩm Gỗ
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=wood-1-layer">Gỗ 1 lớp</a></li>
+                        <li><a href="products.html?category=wood-2-layer">Gỗ 2 lớp</a></li>
+                        <li><a href="products.html?category=wood-handmade">Đồ gỗ Handmade</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-dropdown">
+                    <a href="products.html?category=uv-led" class="nav-link">
+                        UV LED - Name Night
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=uv-led-light">UV LED</a></li>
+                        <li><a href="products.html?category=name-night">Name Night</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="products.html?category=accessories" class="nav-link">Phụ kiện & Hộp quà</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Tin tức</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Liên hệ</a>
+                </li>
+            </ul>
+            <div class="nav-hotline">
+                <i class="fas fa-phone-alt"></i>
+                <span>1900 6750</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                    <li class="active">Liên hệ</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="page-title">Liên Hệ Với Chúng Tôi</h1>
+                <p class="page-subtitle">Chúng tôi luôn sẵn sàng hỗ trợ và tư vấn cho bạn</p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-wrapper">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h2>Thông Tin Liên Hệ</h2>
+                        <p>Hãy liên hệ với chúng tôi qua các kênh dưới đây hoặc điền form bên cạnh.</p>
+                        
+                        <div class="info-items">
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Địa chỉ</h3>
+                                    <p>123 Đường ABC, Quận XYZ<br>Hà Nội, Việt Nam</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Hotline</h3>
+                                    <p>1900 6750</p>
+                                    <p>0123 456 789</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Email</h3>
+                                    <p>contact@micado.vn</p>
+                                    <p>support@micado.vn</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-content">
+                                    <h3>Giờ làm việc</h3>
+                                    <p>Thứ 2 - Thứ 6: 8:00 - 17:30</p>
+                                    <p>Thứ 7: 8:00 - 12:00</p>
+                                    <p>Chủ nhật: Nghỉ</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <h3>Kết nối với chúng tôi</h3>
+                            <div class="social-buttons">
+                                <a href="#" class="social-btn facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="#" class="social-btn instagram">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="#" class="social-btn tiktok">
+                                    <i class="fab fa-tiktok"></i>
+                                    <span>TikTok</span>
+                                </a>
+                                <a href="#" class="social-btn zalo">
+                                    <i class="fas fa-comment"></i>
+                                    <span>Zalo</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <h2>Gửi Tin Nhắn Cho Chúng Tôi</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">
+                                        Họ và tên <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">
+                                        Số điện thoại <span class="required">*</span>
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    Email <span class="required">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">
+                                    Tiêu đề <span class="required">*</span>
+                                </label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">
+                                    Nội dung <span class="required">*</span>
+                                </label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Gửi tin nhắn
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <h2 class="section-title">Tìm Chúng Tôi Trên Bản Đồ</h2>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096524747075!2d105.78467817503186!3d21.028801980633834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab4cd0c66f05%3A0xea31563511af2e54!2zSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1705721234567!5m2!1svi!2s" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Câu Hỏi Thường Gặp</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Thời gian giao hàng là bao lâu?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Thời gian giao hàng phụ thuộc vào khu vực của bạn. Thông thường, đơn hàng sẽ được giao trong vòng 3-5 ngày làm việc đối với nội thành Hà Nội và 5-7 ngày đối với các tỉnh thành khác.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Tôi có thể đặt hàng custom theo yêu cầu không?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Có, chúng tôi nhận thiết kế và sản xuất sản phẩm theo yêu cầu của khách hàng. Vui lòng liên hệ với chúng tôi qua hotline hoặc email để được tư vấn chi tiết.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Chính sách đổi trả như thế nào?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Chúng tôi chấp nhận đổi trả trong vòng 7 ngày kể từ ngày nhận hàng nếu sản phẩm bị lỗi do nhà sản xuất. Sản phẩm phải còn nguyên vẹn, chưa qua sử dụng và có đầy đủ hóa đơn.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Phương thức thanh toán nào được chấp nhận?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Chúng tôi chấp nhận thanh toán qua: Tiền mặt khi nhận hàng (COD), chuyển khoản ngân hàng, ví điện tử (MoMo, ZaloPay), và thẻ tín dụng/ghi nợ.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Làm thế nào để theo dõi đơn hàng?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sau khi đặt hàng, bạn sẽ nhận được mã đơn hàng qua email hoặc SMS. Bạn có thể sử dụng mã này để tra cứu tình trạng đơn hàng trên website hoặc liên hệ hotline để được hỗ trợ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về MicaDo Print</h3>
+                    <p>Chuyên cung cấp sản phẩm mica, gỗ trang trí, quà tặng handmade chất lượng cao. Thiết kế theo yêu cầu - In UV chất lượng cao.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Sản Phẩm</h3>
+                    <ul>
+                        <li><a href="products.html?category=acrylic">Acrylic - Mica</a></li>
+                        <li><a href="products.html?category=wood">Sản phẩm Gỗ</a></li>
+                        <li><a href="products.html?category=uv-led">UV LED - Name Night</a></li>
+                        <li><a href="products.html?category=accessories">Phụ kiện & Hộp quà</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Hỗ Trợ Khách Hàng</h3>
+                    <ul>
+                        <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Phương thức thanh toán</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Liên Hệ</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Hà Nội, Việt Nam</li>
+                        <li><i class="fas fa-phone"></i> Hotline: 1900 6750</li>
+                        <li><i class="fas fa-envelope"></i> contact@micado.vn</li>
+                        <li>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-tiktok"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 MicaDo Print. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

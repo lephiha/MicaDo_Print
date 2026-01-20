@@ -63,11 +63,30 @@ body {
 
 /* Logo */
 .logo {
-    font-size: 32px;
-    font-weight: 700;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
+  display: flex;
+  align-items: center; 
+  gap: 10px;
+  text-decoration: none;
 }
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 2px solid #f59e0b; 
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1; 
+  display: flex;
+  align-items: center;
+}
+
+
 
 .logo:hover {
     transform: scale(1.05);
