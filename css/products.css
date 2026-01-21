@@ -386,6 +386,63 @@
     padding: 0 12px;
 }
 
+/* ===================================
+   SALE PRICE STYLING
+   =================================== */
+
+/* Badge sale màu xanh lá */
+.product-badge.sale-badge {
+    background: #28a745;
+}
+
+/* Wrapper chứa giá sale */
+.product-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+/* Giá đang sale (màu đỏ, to hơn) */
+.product-price-sale {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff4444;
+}
+
+/* Giá gốc (gạch ngang, nhỏ hơn) */
+.product-price-original {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+/* Badge % giảm giá */
+.product-discount {
+    display: inline-block;
+    background: #ff4444;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* List view adjustments */
+.products-grid.list-view .product-price-wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.products-grid.list-view .product-price-sale {
+    font-size: 20px;
+}
+
+.products-grid.list-view .product-price-original {
+    font-size: 15px;
+}
+
 /* ===== RESPONSIVE ===== */
 
 /* Tablet */
@@ -451,6 +508,20 @@
     .products-grid.list-view .product-card {
         grid-template-columns: 120px 1fr;
         gap: 16px;
+    }
+    
+    /* Mobile sale price */
+    .product-price-sale {
+        font-size: 16px;
+    }
+    
+    .product-price-original {
+        font-size: 13px;
+    }
+    
+    .product-discount {
+        font-size: 10px;
+        padding: 2px 5px;
     }
 }
 

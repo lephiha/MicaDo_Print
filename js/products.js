@@ -251,7 +251,7 @@ function renderProducts() {
     
     // Render products
     if (productsToShow.length === 0) {
-        productsGrid.innerHTML = '';
+        productsGrid.innerHTML = '<p style="text-align: center; padding: 40px; color: #999;">Không tìm thấy sản phẩm nào</p>';
     } else {
         productsGrid.innerHTML = productsToShow.map(product => createProductCard(product)).join('');
         
@@ -275,8 +275,23 @@ function createProductCard(product) {
     const badgeHtml = product.status.includes('new') 
         ? '<span class="product-badge">NEW</span>' 
         : product.status.includes('sale') 
-        ? '<span class="product-badge" style="background: #28a745;">SALE</span>' 
+        ? '<span class="product-badge sale-badge">SALE</span>' 
         : '';
+    
+    // Tính % giảm giá nếu có originalPrice
+    let priceHtml = '';
+    if (product.originalPrice && product.originalPrice > product.price) {
+        const discountPercent = Math.round((1 - product.price / product.originalPrice) * 100);
+        priceHtml = `
+            <div class="product-price-wrapper">
+                <span class="product-price-sale">${window.MicaDo.formatPrice(product.price)}</span>
+                <span class="product-price-original">${window.MicaDo.formatPrice(product.originalPrice)}</span>
+                <span class="product-discount">-${discountPercent}%</span>
+            </div>
+        `;
+    } else {
+        priceHtml = `<span class="product-price">${window.MicaDo.formatPrice(product.price)}</span>`;
+    }
     
     return `
         <div class="product-card">
@@ -287,7 +302,7 @@ function createProductCard(product) {
             <div class="product-info">
                 <h3 class="product-title">${product.name}</h3>
                 <div class="product-footer">
-                    <span class="product-price">${window.MicaDo.formatPrice(product.price)}</span>
+                    ${priceHtml}
                     <button class="add-to-cart-btn" data-id="${product.id}">
                         <i class="fas fa-cart-plus"></i>
                     </button>
@@ -337,4 +352,4 @@ function changePage(page) {
 }
 
 // Make changePage available globally
-window.changePage = changePage;
+window.changePage = changePage; 
