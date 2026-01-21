@@ -296,11 +296,13 @@ function createProductCard(product) {
     return `
         <div class="product-card">
             ${badgeHtml}
-            <div class="product-image">
+            <a href="product-detail.html?id=${product.id}" class="product-image">
                 <img src="${product.image}" alt="${product.name}">
-            </div>
+            </a>
             <div class="product-info">
-                <h3 class="product-title">${product.name}</h3>
+                <h3 class="product-title">
+                    <a href="product-detail.html?id=${product.id}">${product.name}</a>
+                </h3>
                 <div class="product-footer">
                     ${priceHtml}
                     <button class="add-to-cart-btn" data-id="${product.id}">
@@ -352,4 +354,4 @@ function changePage(page) {
 }
 
 // Make changePage available globally
-window.changePage = changePage; 
+window.changePage = changePage;
