@@ -294,9 +294,7 @@ function getUrlParams() {
 }
 
 // ===== USER MENU =====
-document.addEventListener('DOMContentLoaded', function() {
-    initUserMenu();
-});
+
 
 function initUserMenu() {
     const userActionsContainer = document.querySelector('.user-actions');
@@ -415,10 +413,7 @@ function createProductCard(product) {
     `;
 }
 
-// ===== LOAD PRODUCTS FOR HOME PAGE =====
-document.addEventListener('DOMContentLoaded', function() {
-    loadHomeProducts();
-});
+
 
 async function loadHomeProducts() {
     try {

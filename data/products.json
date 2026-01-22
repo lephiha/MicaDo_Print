@@ -121,6 +121,18 @@
       "sku": "MCK-005"
     },
     {
+      "id": 9.5,
+      "name": "Móc Chìa Khóa - Thiết kế theo hình và tên",
+      "category": "moc-chia-khoa",
+      "price": 11000,
+      "originalPrice": 20000,
+      "description": "Móc chìa khóa hình tròn pizza độc đáo, thiết kế vui nhộn cho những người yêu thích đồ ăn. In UV màu sắc tươi sáng, bắt mắt. Có thể custom thêm tên, slogan, hình ảnh riêng. Chất liệu mica bền, nhẹ, không bị ẩm mốc. Móc khóa kim loại chắc chắn, không gỉ. Thiết kế cute, trendy, phù hợp với giới trẻ. Món quà vui nhộn tặng foodie, bạn bè, đồng nghiệp. Giá cả hợp lý, mua nhiều giảm giá.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769073705/z7456926393606_f588252c23c71d38fd2ca80ff8cd3923_owwiss.jpg",
+      "status": ["hot"],
+      "stock": 30,
+      "sku": "MCK-007"
+    },
+    {
       "id": 10,
       "name": "Móc Điện Thoại - Thiết kế theo hình và tên",
       "category": "moc-chia-khoa",
@@ -158,6 +170,42 @@
     },
     {
       "id": 13,
+      "name": "Standee - Thiết kế standee decor bàn làm việc",
+      "category": "standee",
+      "price": 15000,
+      "originalPrice": 27000,
+      "description": "Standee trang trí bàn làm việc thiết kế custom theo yêu cầu. Hỗ trợ in hình ảnh, text, logo, nhân vật, mascot. Công nghệ in UV cho màu sắc sống động. Kích thước linh hoạt từ 5-20cm. Chất liệu mica trong suốt hoặc gỗ tự nhiên. Đế đứng chắc chắn, không bị đổ. Có thể làm thành bộ standee theo series, theme. Tạo không gian sống động, cá tính. Quà tặng độc đáo cho sếp, đồng nghiệp, khách hàng.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1768293227/2006929d-3bbc-4244-835a-5eae8cbe0428.png",
+      "status": [],
+      "stock": 50,
+      "sku": "ST-003"
+    },
+    {
+      "id": 14,
+      "name": "Standee - Concept valentine & lễ cưới",
+      "category": "standee",
+      "price": 20000,
+      "originalPrice": 35000,
+      "description": "Standee trang trí bàn làm việc thiết kế custom theo yêu cầu. Hỗ trợ in hình ảnh, text, logo, nhân vật, mascot. Công nghệ in UV cho màu sắc sống động. Kích thước linh hoạt từ 5-20cm. Chất liệu mica trong suốt hoặc gỗ tự nhiên. Đế đứng chắc chắn, không bị đổ. Có thể làm thành bộ standee theo series, theme. Tạo không gian sống động, cá tính. Quà tặng độc đáo cho sếp, đồng nghiệp, khách hàng.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769073993/z7456926528160_b8e44fb0b643a35d2d571f982f0fcc77_eqaikm.jpg",
+      "status": ["hot", "new"],
+      "stock": 50,
+      "sku": "ST-004"
+    },
+    {
+      "id": 15,
+      "name": "Standee - Thiết kế standee decor bàn làm việc",
+      "category": "standee",
+      "price": 15000,
+      "originalPrice": 27000,
+      "description": "Standee trang trí bàn làm việc thiết kế custom theo yêu cầu. Hỗ trợ in hình ảnh, text, logo, nhân vật, mascot. Công nghệ in UV cho màu sắc sống động. Kích thước linh hoạt từ 5-20cm. Chất liệu mica trong suốt hoặc gỗ tự nhiên. Đế đứng chắc chắn, không bị đổ. Có thể làm thành bộ standee theo series, theme. Tạo không gian sống động, cá tính. Quà tặng độc đáo cho sếp, đồng nghiệp, khách hàng.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769073702/z7456926408815_4d6bfeaf27c74cb59bf2c27382951e9e_bxmcik.jpg",
+      "status": [],
+      "stock": 50,
+      "sku": "ST-003"
+    },
+    {
+      "id": 15,
       "name": "Standee - Thiết kế standee decor bàn làm việc",
       "category": "standee",
       "price": 15000,
@@ -289,6 +337,30 @@
       "sku": "UV-001"
     },
     {
+      "id": 21.5,
+      "name": "UV LED size 15cm- ĐỂ TRÒN 1 màu - Valentine & lễ cưới",
+      "category": "uv-led-light",
+      "price": 99000,
+      "originalPrice": 130000,
+      "description": "Đèn LED UV cao cấp với đế tròn sang trọng, bảng mica hình chữ nhật. In custom theo yêu cầu với công nghệ UV hiện đại cho hình ảnh sắc nét, rõ ràng. Đèn LED ánh sáng vàng ấm dịu nhẹ, bảo vệ mắt, phù hợp sử dụng ban đêm. Đế gỗ tự nhiên bền đẹp, sơn bóng cao cấp. Nguồn USB tiện lợi, tiết kiệm điện năng. Thiết kế hiện đại, sang trọng, phù hợp trang trí phòng ngủ, phòng làm việc, quà tặng ý nghĩa cho người thân, bạn bè.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769073945/z7456926532824_929909850dc866c726a05384c2439db1_zyifgq.jpg",
+      "status": ["new"],
+      "stock": 15,
+      "sku": "UV-001.5"
+    },
+    {
+      "id": 21.6,
+      "name": "UV LED size 15cm- ĐỂ TRÒN 1 màu - Ngày kỉ niệm & sinh nhật",
+      "category": "uv-led-light",
+      "price": 99000,
+      "originalPrice": 130000,
+      "description": "Đèn LED UV cao cấp với đế tròn sang trọng, bảng mica hình chữ nhật. In custom theo yêu cầu với công nghệ UV hiện đại cho hình ảnh sắc nét, rõ ràng. Đèn LED ánh sáng vàng ấm dịu nhẹ, bảo vệ mắt, phù hợp sử dụng ban đêm. Đế gỗ tự nhiên bền đẹp, sơn bóng cao cấp. Nguồn USB tiện lợi, tiết kiệm điện năng. Thiết kế hiện đại, sang trọng, phù hợp trang trí phòng ngủ, phòng làm việc, quà tặng ý nghĩa cho người thân, bạn bè.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769074579/z7456926476401_26023c3ffb8d864d156cdc1838cc2604_kclxai.jpg",
+      "status": ["new"],
+      "stock": 16,
+      "sku": "UV-001.6"
+    },
+    {
       "id": 22,
       "name": "UV LED size 15cm - Đế Dài 7 màu - in hình - tên",
       "category": "uv-led-light",
@@ -301,6 +373,18 @@
       "sku": "UV-002"
     },
     {
+      "id": 22.5,
+      "name": "UV LED size 15cm - Đế Dài 7 màu - in hình - tên gia đình",
+      "category": "uv-led-light",
+      "price": 110000,
+      "originalPrice": 150000,
+      "description": "Đèn UV LED đế dài thiết kế tinh tế, in hình và tên theo yêu cầu. Công nghệ in UV 6 màu cho chi tiết sắc nét, màu sắc chân thực. Đế gỗ dài chắc chắn, sơn bóng cao cấp bền đẹp theo thời gian. Ánh sáng LED vàng ấm dịu nhẹ, không gây mỏi mắt. Cấp nguồn qua cổng USB tiện lợi, có thể kết nối với adapter, pin dự phòng. Thiết kế sang trọng, hiện đại, phù hợp làm đèn trang trí, đèn ngủ, quà tặng sinh nhật, kỷ niệm, Valentine.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769073702/z7456926429736_5b8f0272bdf91c88a61ea3c0ccabb406_nxotlh.jpg",
+      "status": ["new"],
+      "stock": 20,
+      "sku": "UV-002.5"
+    },
+    {
       "id": 23,
       "name": "UV LED size 20cm - ĐỂ dài 1 màu - in hình - tên",
       "category": "uv-led-light",
@@ -308,6 +392,18 @@
       "originalPrice": 150000,
       "description": "Đèn LED 7 màu có remote điều khiển từ xa tiện lợi. Chuyển đổi 7 màu sắc: đỏ, xanh, vàng, tím, hồng, trắng, đa màu. In UV hình ảnh custom rõ nét, sống động. Đế gỗ dài chắc chắn, sơn bóng sang trọng. LED tiết kiệm điện, tuổi thọ cao. Remote điều khiển chuyển màu, độ sáng, chế độ nhấp nháy. Nguồn USB linh hoạt. Tạo không gian sống động, cá tính. Phù hợp phòng ngủ, phòng game, cafe. Quà tặng độc đáo, ấn tượng.",
       "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1768889536/Gemini_Generated_Image_97wel997wel997we_rn5liz.png",
+      "status": [],
+      "stock": 18,
+      "sku": "UV-003"
+    },
+    {
+      "id": 23.5,
+      "name": "UV LED size 20cm - ĐỂ dài 1 màu - playlist nhạc cùng nửa kia",
+      "category": "uv-led-light",
+      "price": 130000,
+      "originalPrice": 150000,
+      "description": "Đèn LED 7 màu có remote điều khiển từ xa tiện lợi. Chuyển đổi 7 màu sắc: đỏ, xanh, vàng, tím, hồng, trắng, đa màu. In UV hình ảnh custom rõ nét, sống động. Đế gỗ dài chắc chắn, sơn bóng sang trọng. LED tiết kiệm điện, tuổi thọ cao. Remote điều khiển chuyển màu, độ sáng, chế độ nhấp nháy. Nguồn USB linh hoạt. Tạo không gian sống động, cá tính. Phù hợp phòng ngủ, phòng game, cafe. Quà tặng độc đáo, ấn tượng.",
+      "image": "https://res.cloudinary.com/df2upzfb9/image/upload/v1769074577/z7456926473847_23d98f9f0c6aa17edae6d3951796f990_k6rzhy.jpg",
       "status": [],
       "stock": 18,
       "sku": "UV-003"
