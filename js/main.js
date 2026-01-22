@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCartCount();
     initScrollEffects();
     initDropdownMobile();
+    initUserMenu();       
+    loadHomeProducts();
 });
 
 // ===== MOBILE MENU =====
@@ -368,6 +370,148 @@ function handleLogout(e) {
         window.MicaDo.showNotification('Đã đăng xuất', 'success');
         setTimeout(() => location.href = 'index.html', 1000);
     }
+}
+
+function createProductCard(product) {
+    const badgeHtml = product.status && product.status.includes('new') 
+        ? '<span class="product-badge">NEW</span>' 
+        : product.status && product.status.includes('sale') 
+        ? '<span class="product-badge sale-badge">SALE</span>' 
+        : '';
+    
+    // Tính % giảm giá nếu có originalPrice
+    let priceHtml = '';
+    if (product.originalPrice && product.originalPrice > product.price) {
+        const discountPercent = Math.round((1 - product.price / product.originalPrice) * 100);
+        priceHtml = `
+            <div class="product-price-wrapper">
+                <span class="product-price-sale">${formatPrice(product.price)}</span>
+                <span class="product-price-original">${formatPrice(product.originalPrice)}</span>
+                <span class="product-discount">-${discountPercent}%</span>
+            </div>
+        `;
+    } else {
+        priceHtml = `<span class="product-price">${formatPrice(product.price)}</span>`;
+    }
+    
+    return `
+        <div class="product-card">
+            ${badgeHtml}
+            <a href="product-detail.html?id=${product.id}" class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </a>
+            <div class="product-info">
+                <h3 class="product-title">
+                    <a href="product-detail.html?id=${product.id}">${product.name}</a>
+                </h3>
+                <div class="product-footer">
+                    ${priceHtml}
+                    <button class="add-to-cart-btn" data-id="${product.id}">
+                        <i class="fas fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// ===== LOAD PRODUCTS FOR HOME PAGE =====
+document.addEventListener('DOMContentLoaded', function() {
+    loadHomeProducts();
+});
+
+async function loadHomeProducts() {
+    try {
+        const response = await fetch('data/products.json');
+        const data = await response.json();
+        
+        // Render sản phẩm HOT
+        const hotProducts = data.products.filter(p => p.status && p.status.includes('hot')).slice(0, 4);
+        renderProductsToGrid(hotProducts, 'hotProducts');
+        
+        // Render sản phẩm MỚI
+        const newProducts = data.products.filter(p => p.status && p.status.includes('new')).slice(0, 4);
+        renderProductsToGrid(newProducts, 'newProducts');
+        
+    } catch (error) {
+        console.error('Error loading products:', error);
+    }
+}
+
+function renderProductsToGrid(products, gridId) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    
+    grid.innerHTML = products.map(product => createProductCard(product)).join('');
+    
+    // Add event listeners for add to cart buttons
+    grid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const productId = parseInt(this.dataset.id);
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                window.MicaDo.addToCart(product);
+            }
+        });
+    });
+}
+
+// ===== PRICING POPUP =====
+document.addEventListener('DOMContentLoaded', function() {
+    initPricingPopup();
+});
+
+function initPricingPopup() {
+    // Create popup trigger button
+    const triggerBtn = document.createElement('button');
+    triggerBtn.className = 'pricing-popup-trigger';
+    triggerBtn.innerHTML = `
+        <i class="fas fa-tag"></i>
+        <span>Xem Bảng Giá</span>
+    `;
+    document.body.appendChild(triggerBtn);
+    
+    // Create popup overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'pricing-popup-overlay';
+    overlay.innerHTML = `
+        <div class="pricing-popup-content">
+            <button class="pricing-popup-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="https://res.cloudinary.com/df2upzfb9/image/upload/v1769070962/8396308f-b68a-4712-8d86-d20ce51303a2.png" alt="Bảng giá MicaDo">
+        </div>
+    `;
+    document.body.appendChild(overlay);
+    
+    // Open popup
+    triggerBtn.addEventListener('click', function() {
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Close popup
+    const closeBtn = overlay.querySelector('.pricing-popup-close');
+    closeBtn.addEventListener('click', function() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    
+    // Close when clicking outside
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Close with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 window.handleLogout = handleLogout;
