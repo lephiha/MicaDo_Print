@@ -291,6 +291,87 @@ function getUrlParams() {
     return params;
 }
 
+// ===== USER MENU =====
+document.addEventListener('DOMContentLoaded', function() {
+    initUserMenu();
+});
+
+function initUserMenu() {
+    const userActionsContainer = document.querySelector('.user-actions');
+    if (!userActionsContainer) return;
+    
+    const currentUser = getCurrentUser();
+    
+    if (currentUser) {
+        renderUserMenu(userActionsContainer, currentUser);
+    } else {
+        const loginLink = userActionsContainer.querySelector('.user-login');
+        if (loginLink) loginLink.href = 'login.html';
+    }
+}
+
+function renderUserMenu(container, user) {
+    const loginLink = container.querySelector('.user-login');
+    if (!loginLink) return;
+    
+    const firstLetter = user.name.charAt(0).toUpperCase();
+    
+    loginLink.outerHTML = `
+        <div class="user-menu">
+            <button class="user-menu-toggle">
+                <div class="user-avatar">${firstLetter}</div>
+                <span class="user-name">${user.name}</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="user-dropdown">
+                <div class="user-dropdown-header">
+                    <div class="user-dropdown-name">${user.name}</div>
+                    <div class="user-dropdown-email">${user.email}</div>
+                </div>
+                <a href="#" class="user-dropdown-item">
+                    <i class="fas fa-user"></i> Tài khoản
+                </a>
+                <a href="#" class="user-dropdown-item">
+                    <i class="fas fa-shopping-bag"></i> Đơn hàng
+                </a>
+                <a href="#" class="user-dropdown-item user-dropdown-logout" onclick="handleLogout(event)">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </a>
+            </div>
+        </div>
+    `;
+    
+    const toggle = document.querySelector('.user-menu-toggle');
+    const menu = document.querySelector('.user-menu');
+    
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('active');
+    });
+    
+    document.addEventListener('click', () => {
+        menu.classList.remove('active');
+    });
+}
+
+function getCurrentUser() {
+    const user = localStorage.getItem('micado_current_user') || 
+                  sessionStorage.getItem('micado_current_user');
+    return user ? JSON.parse(user) : null;
+}
+
+function handleLogout(e) {
+    e.preventDefault();
+    if (confirm('Bạn có chắc muốn đăng xuất?')) {
+        localStorage.removeItem('micado_current_user');
+        sessionStorage.removeItem('micado_current_user');
+        window.MicaDo.showNotification('Đã đăng xuất', 'success');
+        setTimeout(() => location.href = 'index.html', 1000);
+    }
+}
+
+window.handleLogout = handleLogout;
+
 // Export functions for use in other files
 window.MicaDo = {
     addToCart,
