@@ -328,10 +328,10 @@ function renderUserMenu(container, user) {
                     <div class="user-dropdown-name">${user.name}</div>
                     <div class="user-dropdown-email">${user.email}</div>
                 </div>
-                <a href="#" class="user-dropdown-item">
+                <a href="profile.html" class="user-dropdown-item">
                     <i class="fas fa-user"></i> Tài khoản
                 </a>
-                <a href="#" class="user-dropdown-item">
+                <a href="orders.html" class="user-dropdown-item">
                     <i class="fas fa-shopping-bag"></i> Đơn hàng
                 </a>
                 <a href="#" class="user-dropdown-item user-dropdown-logout" onclick="handleLogout(event)">
