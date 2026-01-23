@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Hàng - MicaDo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+<body>
+    <!-- Header giống profile.html -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-item">
+                <i class="fas fa-phone"></i>
+                <span>Hotline: 0392.405.600</span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/images/logo.png" alt="MicaDo Logo">
+                <span class="logo-text">
+                    <span class="logo-white">Mica</span><span class="logo-orange">Do</span>
+                </span>
+            </a>
+            <div class="user-actions">
+                <a href="login.html" class="user-login">
+                    <i class="fas fa-user"></i>
+                    <span>Đăng nhập</span>
+                </a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <span>/</span>
+                <span>Đơn hàng</span>
+            </div>
+
+            <div class="profile-layout">
+                <!-- Sidebar -->
+                <aside class="profile-sidebar">
+                    <div class="profile-user-info">
+                        <div class="profile-avatar" id="userAvatar">L</div>
+                        <h3 id="userName">Lê Phi Hà</h3>
+                        <p id="userEmail">phihasky@gmail.com</p>
+                    </div>
+
+                    <nav class="profile-menu">
+                        <a href="profile.html" class="profile-menu-item">
+                            <i class="fas fa-user"></i>
+                            <span>Thông tin tài khoản</span>
+                        </a>
+                        <a href="orders.html" class="profile-menu-item active">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Đơn hàng của tôi</span>
+                        </a>
+                        <a href="#" class="profile-menu-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Địa chỉ nhận hàng</span>
+                        </a>
+                        <a href="#" class="profile-menu-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Sản phẩm yêu thích</span>
+                        </a>
+                        <a href="#" class="profile-menu-item" onclick="handleLogout(event)">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Đăng xuất</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="profile-content">
+                    <div class="content-header">
+                        <h2>Đơn Hàng Của Tôi</h2>
+                        <p>Quản lý và theo dõi đơn hàng của bạn</p>
+                    </div>
+
+                    <!-- Order Status Tabs -->
+                    <div class="order-tabs">
+                        <button class="order-tab active" data-status="all">
+                            Tất cả
+                        </button>
+                        <button class="order-tab" data-status="pending">
+                            <i class="fas fa-clock"></i>
+                            Chờ xác nhận
+                        </button>
+                        <button class="order-tab" data-status="processing">
+                            <i class="fas fa-box"></i>
+                            Đang xử lý
+                        </button>
+                        <button class="order-tab" data-status="shipping">
+                            <i class="fas fa-shipping-fast"></i>
+                            Đang giao
+                        </button>
+                        <button class="order-tab" data-status="completed">
+                            <i class="fas fa-check-circle"></i>
+                            Hoàn thành
+                        </button>
+                        <button class="order-tab" data-status="cancelled">
+                            <i class="fas fa-times-circle"></i>
+                            Đã hủy
+                        </button>
+                    </div>
+
+                    <!-- Orders List -->
+                    <div class="orders-list" id="ordersList">
+                        <!-- Order Item -->
+                        <div class="order-item">
+                            <div class="order-header">
+                                <div class="order-info">
+                                    <span class="order-id">#DH001234</span>
+                                    <span class="order-date">
+                                        <i class="fas fa-calendar"></i>
+                                        20/01/2025
+                                    </span>
+                                </div>
+                                <span class="order-status status-shipping">
+                                    <i class="fas fa-shipping-fast"></i>
+                                    Đang giao hàng
+                                </span>
+                            </div>
+
+                            <div class="order-products">
+                                <div class="order-product">
+                                    <img src="https://res.cloudinary.com/df2upzfb9/image/upload/v1768889206/Gemini_Generated_Image_b4mgdkb4mgdkb4mg_oruool.png" alt="Product">
+                                    <div class="product-details">
+                                        <h4>UV LED - ĐỂ TRÒN - hình chữ nhật</h4>
+                                        <p>Số lượng: x1</p>
+                                    </div>
+                                    <span class="product-price">78.000₫</span>
+                                </div>
+                            </div>
+
+                            <div class="order-footer">
+                                <div class="order-total">
+                                    <span>Tổng tiền:</span>
+                                    <strong>78.000₫</strong>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-eye"></i>
+                                        Chi tiết
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-redo"></i>
+                                        Mua lại
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Item 2 -->
+                        <div class="order-item">
+                            <div class="order-header">
+                                <div class="order-info">
+                                    <span class="order-id">#DH001233</span>
+                                    <span class="order-date">
+                                        <i class="fas fa-calendar"></i>
+                                        15/01/2025
+                                    </span>
+                                </div>
+                                <span class="order-status status-completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    Hoàn thành
+                                </span>
+                            </div>
+
+                            <div class="order-products">
+                                <div class="order-product">
+                                    <img src="https://res.cloudinary.com/df2upzfb9/image/upload/v1768804644/Gemini_Generated_Image_i4vy4yi4vy4yi4vy_xw0k2z.png" alt="Product">
+                                    <div class="product-details">
+                                        <h4>Mica Custom Shape - Kèm phụ kiện</h4>
+                                        <p>Số lượng: x2</p>
+                                    </div>
+                                    <span class="product-price">30.000₫</span>
+                                </div>
+                                <div class="order-product">
+                                    <img src="https://res.cloudinary.com/df2upzfb9/image/upload/v1768292400/b880866c-7d9c-4492-a1cd-f339670959e8_uaod3z.png" alt="Product">
+                                    <div class="product-details">
+                                        <h4>Móc chìa khóa - Thiết kế theo hình</h4>
+                                        <p>Số lượng: x1</p>
+                                    </div>
+                                    <span class="product-price">10.000₫</span>
+                                </div>
+                            </div>
+
+                            <div class="order-footer">
+                                <div class="order-total">
+                                    <span>Tổng tiền:</span>
+                                    <strong>40.000₫</strong>
+                                </div>
+                                <div class="order-actions">
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-eye"></i>
+                                        Chi tiết
+                                    </button>
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-redo"></i>
+                                        Mua lại
+                                    </button>
+                                    <button class="btn btn-review">
+                                        <i class="fas fa-star"></i>
+                                        Đánh giá
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div class="empty-orders" style="display: none;">
+                            <i class="fas fa-shopping-bag"></i>
+                            <h3>Chưa có đơn hàng nào</h3>
+                            <p>Bạn chưa có đơn hàng nào. Hãy tiếp tục mua sắm!</p>
+                            <a href="products.html" class="btn btn-primary">
+                                <i class="fas fa-shopping-cart"></i>
+                                Tiếp tục mua sắm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 MicaDo Print. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/orders.js"></script>
+</body>
+</html>
