@@ -377,24 +377,19 @@ function createProductCard(product) {
         ? '<span class="product-badge sale-badge">SALE</span>' 
         : '';
     
+    // Tính % giảm giá nếu có originalPrice
     let priceHtml = '';
     if (product.originalPrice && product.originalPrice > product.price) {
         const discountPercent = Math.round((1 - product.price / product.originalPrice) * 100);
         priceHtml = `
             <div class="product-price-wrapper">
-                <small style="font-size: 11px; color: #999; margin-bottom: 4px;">Giá tham khảo</small>
                 <span class="product-price-sale">${formatPrice(product.price)}</span>
                 <span class="product-price-original">${formatPrice(product.originalPrice)}</span>
                 <span class="product-discount">-${discountPercent}%</span>
             </div>
         `;
     } else {
-        priceHtml = `
-            <div style="display: flex; flex-direction: column; gap: 2px;">
-                <small style="font-size: 11px; color: #999;">Giá tham khảo</small>
-                <span class="product-price">${formatPrice(product.price)}</span>
-            </div>
-        `;
+        priceHtml = `<span class="product-price">${formatPrice(product.price)}</span>`;
     }
     
     return `
@@ -409,8 +404,8 @@ function createProductCard(product) {
                 </h3>
                 <div class="product-footer">
                     ${priceHtml}
-                    <button class="contact-price-btn" onclick="contactForPrice('${product.name}')">
-                        <i class="fas fa-phone"></i>
+                    <button class="add-to-cart-btn" data-id="${product.id}">
+                        <i class="fas fa-cart-plus"></i>
                     </button>
                 </div>
             </div>
@@ -516,15 +511,6 @@ function initPricingPopup() {
 
 window.handleLogout = handleLogout;
 
-// Contact for price
-function contactForPrice(productName) {
-    const phone = '0392405600';
-    const message = `Xin chào! Tôi muốn hỏi giá sản phẩm: ${productName}`;
-    const zaloUrl = `https://zalo.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(zaloUrl, '_blank');
-}
-
-window.contactForPrice = contactForPrice;
 // Export functions for use in other files
 window.MicaDo = {
     addToCart,
@@ -535,3 +521,72 @@ window.MicaDo = {
     formatPrice,
     getUrlParams
 };
+
+// ===== MOBILE MENU =====
+document.addEventListener('DOMContentLoaded', function() {
+    initMobileMenu();
+});
+
+function initMobileMenu() {
+    // Tạo mobile menu buttons
+    if (window.innerWidth <= 768) {
+        const header = document.querySelector('.header-container');
+        
+        // Create mobile actions container
+        const mobileActions = document.createElement('div');
+        mobileActions.className = 'mobile-menu-actions';
+        mobileActions.innerHTML = `
+            <button class="mobile-search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        `;
+        
+        // Insert before user-actions
+        const userActions = header.querySelector('.user-actions');
+        header.insertBefore(mobileActions, userActions);
+        
+        // Search toggle
+        const searchBtn = mobileActions.querySelector('.mobile-search-btn');
+        const searchBox = document.querySelector('.search-box');
+        
+        searchBtn.addEventListener('click', function() {
+            searchBox.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-search');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Menu toggle
+        const menuBtn = mobileActions.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('.nav');
+        
+        menuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Dropdown mobile
+        const hasDropdown = document.querySelectorAll('.has-dropdown');
+        hasDropdown.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Close menu when click outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target) && !menuBtn.contains(e.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                menuBtn.querySelector('i').classList.remove('fa-times');
+                menuBtn.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+}
