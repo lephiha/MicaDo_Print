@@ -532,6 +532,11 @@ function initMobileMenu() {
     if (window.innerWidth <= 768) {
         const header = document.querySelector('.header-container');
         
+        // Create mobile overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'mobile-overlay';
+        document.body.appendChild(overlay);
+        
         // Create mobile actions container
         const mobileActions = document.createElement('div');
         mobileActions.className = 'mobile-menu-actions';
@@ -548,6 +553,18 @@ function initMobileMenu() {
         const userActions = header.querySelector('.user-actions');
         header.insertBefore(mobileActions, userActions);
         
+        // Add mobile menu header to nav
+        const nav = document.querySelector('.nav');
+        const menuHeader = document.createElement('div');
+        menuHeader.className = 'mobile-menu-header';
+        menuHeader.innerHTML = `
+            <h3>MENU</h3>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        nav.insertBefore(menuHeader, nav.firstChild);
+        
         // Search toggle
         const searchBtn = mobileActions.querySelector('.mobile-search-btn');
         const searchBox = document.querySelector('.search-box');
@@ -560,14 +577,23 @@ function initMobileMenu() {
         
         // Menu toggle
         const menuBtn = mobileActions.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('.nav');
+        const closeBtn = menuHeader.querySelector('.mobile-menu-close');
         
-        menuBtn.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-        });
+        function openMenu() {
+            nav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMenu() {
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        menuBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
         
         // Dropdown mobile
         const hasDropdown = document.querySelectorAll('.has-dropdown');
@@ -575,18 +601,28 @@ function initMobileMenu() {
             const link = item.querySelector('.nav-link');
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Close other dropdowns
+                hasDropdown.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
                 item.classList.toggle('active');
             });
         });
-        
-        // Close menu when click outside
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !menuBtn.contains(e.target) && nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                menuBtn.querySelector('i').classList.remove('fa-times');
-                menuBtn.querySelector('i').classList.add('fa-bars');
-                document.body.style.overflow = '';
-            }
-        });
     }
 }
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        const nav = document.querySelector('.nav');
+        const overlay = document.querySelector('.mobile-overlay');
+        if (nav) nav.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
