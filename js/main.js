@@ -8,32 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initSearch();
     initCartCount();
     initScrollEffects();
-    initDropdownMobile();
     initUserMenu();       
     loadHomeProducts();
+    initPricingPopup();
 });
-
-// ===== MOBILE MENU =====
-function initMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Create mobile menu button if not exists
-    if (window.innerWidth <= 768 && !document.querySelector('.mobile-menu-btn')) {
-        const mobileBtn = document.createElement('button');
-        mobileBtn.className = 'mobile-menu-btn';
-        mobileBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        
-        const navContainer = document.querySelector('.nav-container');
-        navContainer.insertBefore(mobileBtn, navMenu);
-        
-        mobileBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            this.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-    }
-}
 
 // ===== SEARCH FUNCTIONALITY =====
 function initSearch() {
@@ -208,22 +186,6 @@ function initScrollEffects() {
     });
 }
 
-// ===== DROPDOWN MOBILE =====
-function initDropdownMobile() {
-    if (window.innerWidth <= 768) {
-        const hasDropdown = document.querySelectorAll('.has-dropdown');
-        
-        hasDropdown.forEach(item => {
-            const link = item.querySelector('.nav-link');
-            
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                item.classList.toggle('active');
-            });
-        });
-    }
-}
-
 // ===== NOTIFICATION =====
 function showNotification(message, type = 'info') {
     // Remove existing notification
@@ -294,8 +256,6 @@ function getUrlParams() {
 }
 
 // ===== USER MENU =====
-
-
 function initUserMenu() {
     const userActionsContainer = document.querySelector('.user-actions');
     if (!userActionsContainer) return;
@@ -413,8 +373,6 @@ function createProductCard(product) {
     `;
 }
 
-
-
 async function loadHomeProducts() {
     try {
         const response = await fetch('data/products.json');
@@ -452,10 +410,6 @@ function renderProductsToGrid(products, gridId) {
 }
 
 // ===== PRICING POPUP =====
-document.addEventListener('DOMContentLoaded', function() {
-    initPricingPopup();
-});
-
 function initPricingPopup() {
     // Create popup trigger button
     const triggerBtn = document.createElement('button');
@@ -509,28 +463,15 @@ function initPricingPopup() {
     });
 }
 
-window.handleLogout = handleLogout;
-
-// Export functions for use in other files
-window.MicaDo = {
-    addToCart,
-    getCart,
-    saveCart,
-    updateCartCount,
-    showNotification,
-    formatPrice,
-    getUrlParams
-};
-
 // ===== MOBILE MENU =====
-document.addEventListener('DOMContentLoaded', function() {
-    initMobileMenu();
-});
-
 function initMobileMenu() {
-    // Tạo mobile menu buttons
+    // Chỉ chạy trên mobile
     if (window.innerWidth <= 768) {
         const header = document.querySelector('.header-container');
+        if (!header) return;
+        
+        // Kiểm tra xem đã tạo chưa để tránh duplicate
+        if (document.querySelector('.mobile-menu-actions')) return;
         
         // Create mobile overlay
         const overlay = document.createElement('div');
@@ -626,3 +567,16 @@ window.addEventListener('resize', function() {
         document.body.style.overflow = '';
     }
 });
+
+window.handleLogout = handleLogout;
+
+// Export functions for use in other files
+window.MicaDo = {
+    addToCart,
+    getCart,
+    saveCart,
+    updateCartCount,
+    showNotification,
+    formatPrice,
+    getUrlParams
+};
