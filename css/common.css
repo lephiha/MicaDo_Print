@@ -985,6 +985,27 @@ body {
         max-height: 80vh;
     }
 }
+/* Contact Price Button */
+.contact-price-btn {
+    width: 40px;
+    height: 40px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.contact-price-btn:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
 
 /* ===== UTILITY CLASSES ===== */
 .text-center {

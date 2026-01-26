@@ -377,19 +377,24 @@ function createProductCard(product) {
         ? '<span class="product-badge sale-badge">SALE</span>' 
         : '';
     
-    // Tính % giảm giá nếu có originalPrice
     let priceHtml = '';
     if (product.originalPrice && product.originalPrice > product.price) {
         const discountPercent = Math.round((1 - product.price / product.originalPrice) * 100);
         priceHtml = `
             <div class="product-price-wrapper">
+                <small style="font-size: 11px; color: #999; margin-bottom: 4px;">Giá tham khảo</small>
                 <span class="product-price-sale">${formatPrice(product.price)}</span>
                 <span class="product-price-original">${formatPrice(product.originalPrice)}</span>
                 <span class="product-discount">-${discountPercent}%</span>
             </div>
         `;
     } else {
-        priceHtml = `<span class="product-price">${formatPrice(product.price)}</span>`;
+        priceHtml = `
+            <div style="display: flex; flex-direction: column; gap: 2px;">
+                <small style="font-size: 11px; color: #999;">Giá tham khảo</small>
+                <span class="product-price">${formatPrice(product.price)}</span>
+            </div>
+        `;
     }
     
     return `
@@ -404,8 +409,8 @@ function createProductCard(product) {
                 </h3>
                 <div class="product-footer">
                     ${priceHtml}
-                    <button class="add-to-cart-btn" data-id="${product.id}">
-                        <i class="fas fa-cart-plus"></i>
+                    <button class="contact-price-btn" onclick="contactForPrice('${product.name}')">
+                        <i class="fas fa-phone"></i>
                     </button>
                 </div>
             </div>
@@ -511,6 +516,15 @@ function initPricingPopup() {
 
 window.handleLogout = handleLogout;
 
+// Contact for price
+function contactForPrice(productName) {
+    const phone = '0392405600';
+    const message = `Xin chào! Tôi muốn hỏi giá sản phẩm: ${productName}`;
+    const zaloUrl = `https://zalo.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(zaloUrl, '_blank');
+}
+
+window.contactForPrice = contactForPrice;
 // Export functions for use in other files
 window.MicaDo = {
     addToCart,
